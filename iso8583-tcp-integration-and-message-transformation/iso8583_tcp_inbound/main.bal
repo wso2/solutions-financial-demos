@@ -32,7 +32,7 @@ service on new tcp:Listener(inboundConfig.port, listenerConfig) {
     // This remote method is invoked when the new client connects to the server.
     remote function onConnect(tcp:Caller caller) returns tcp:ConnectionService {
         io:println("Client connected to ISO 8583 TCP server ", inboundConfig.host, ":", inboundConfig.port, 
-            "caller remote port: ", caller.remotePort);
+            " caller remote port: ", caller.remotePort);
         return new TransferService();
     }
 }

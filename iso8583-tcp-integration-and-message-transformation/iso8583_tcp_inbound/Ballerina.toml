@@ -3,6 +3,7 @@ org = "wso2"
 name = "iso8583_tcp_inbound"
 version = "0.1.0"
 distribution = "2201.10.1"
+keywords=["Financial", "iso8583", "tcp", "integration", "iso8583-iso20022"]
 
 [build-options]
 observabilityIncluded = true

@@ -32,9 +32,9 @@ http:Client backendClient = check new (backendServiceUrl);
 # + return - byte array of the response message
 public function handleInbound(byte[] & readonly data) returns byte[]|error {
 
+    log:printDebug("[Transaction Handler] Recieived data string: " + data.toString());
     string hex = array:toBase16(data);
     log:printDebug("[Transaction Handler] Received message from the network driver: " + hex);
-    log:printDebug("[Transaction Handler] Recieived data string: " + data.toString());
     int headerLength = inboundConfig.message.headerLength * 2; // length provided as no. of bytes
     string versionNameString = inboundConfig.message.versionNameString ?: "";
     int versionNameLength = versionNameString.length();

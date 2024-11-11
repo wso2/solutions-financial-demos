@@ -34,9 +34,11 @@ service /'transaction on new http:Listener(9001) {
             } else if isopacs008.FIToFICstmrCdtTrf.CdtTrfTxInf[0].PmtTpInf?.LclInstrm?.Prtry.toString().startsWith("31") {
                 return http:ACCEPTED;
             } else {
+                log:printError("Invalid amount or payment type", correlationId = correlationId);
                 return http:BAD_REQUEST;
             }
         } else {
+            log:printError("Invalid ISO20022 message", correlationId = correlationId);
             return http:BAD_REQUEST;
         }
     }
@@ -52,9 +54,11 @@ service /'transaction on new http:Listener(9001) {
             } else if payload.ProcessingCode.startsWith("00") {
                 return http:ACCEPTED;
             } else {
+                log:printError("Invalid amount or processing code", correlationId = correlationId);
                 return http:BAD_REQUEST;
             }
         } else {
+            log:printError("Invalid MTI", correlationId = correlationId);
             return http:BAD_REQUEST;
         }
     }
