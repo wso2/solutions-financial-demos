@@ -1,0 +1,16 @@
+[inboundConfig]
+host = "localhost"
+port = 9090
+
+[inboundConfig.message]
+headerLength = 2
+versionNameString = ""
+mtiLength = 4
+
+[isoLibraryConfig]
+fieldDefFilePath = "resources/jposdefv87.xml"
+fieldNamesFilePath = "resources/jpos.csv"
+
+[backendServiceConfig]
+host = "localhost"
+port = 9001
